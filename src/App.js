@@ -36,33 +36,32 @@ const quotes = [
 	}
 ]
 
-const random = (props) => {
-  let num = (Math.round(Math.random() * (quotes.length - 1)));
-  // if (num === props.index) {
-  //   this.random();
-  // }
-  return num;
-}
+// const random = () => {
+//   let num = (Math.round(Math.random() * (quotes.length - 1)));
+//   if (num === 9) {
+//     random();
+//   }
+//   return num;
+// }
 
-class App extends React.Component {
+class Box extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      index: random(),
+      index: props.num,
     }
     this.handleChange = this.handleChange.bind(this);
   }
 
-  
   generateRandomQuote = () => {
-  this.setState({index: random()})
-  }
-
-  handleChange(e) {
-    e.preventDefault();
-    this.generateRandomQuote();
-  }
+    this.setState({index: this.state.index})
+    }
   
+    handleChange(e) {
+      e.preventDefault();
+      this.generateRandomQuote();
+    }
+
   render() {
     {console.log(this.state.index)}
     return (
@@ -78,6 +77,7 @@ class App extends React.Component {
         <div className="btn-tweet-wrapper row">
           <a 
             href="https://www.twitter.com/intent/tweet" 
+            rel="noreferrer"
             target="_blank"
             id="tweet-quote" 
             className="btn tweet-quote"
@@ -93,6 +93,20 @@ class App extends React.Component {
       </div>
     );
   }
+}
+
+function App() {
+  const random = () => {
+    let ranNum = (Math.round(Math.random() * (quotes.length - 1)));
+    if (ranNum === 9) {
+      random();
+    }
+    return ranNum;
+  }
+
+  return (
+    <Box num={random()} />
+  )
 }
 
 export default App;
