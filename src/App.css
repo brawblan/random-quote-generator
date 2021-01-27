@@ -38,11 +38,12 @@ a {
 }
 
 .box-wrapper {
-  border: 1px solid black;
+  border: 10px ridge rgb(182, 87, 251);
+  background-color: rgba(183, 87, 251, 0.5);
   height: 300px;
   width: 600px;
   margin: 100px auto;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 20px;
 }
 
@@ -67,10 +68,4 @@ a {
   width: 100%;
   justify-content: space-around;
   margin-bottom: 30px;
-}
-.tweet-quote {
-
-}
-.new-quote {
-
 }
