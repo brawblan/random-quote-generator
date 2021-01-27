@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 
 const quotes = [
@@ -35,23 +36,63 @@ const quotes = [
 	}
 ]
 
-function App() {
-  return (
-    <div id="quote-box" className="box-wrapper col">
-      <div className="quote-author-wrapper col">
-        <div id="text" className="quote">
-        {quotes[0]['quote']}
+const random = (props) => {
+  let num = (Math.round(Math.random() * (quotes.length - 1)));
+  // if (num === props.index) {
+  //   this.random();
+  // }
+  return num;
+}
+
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      index: random(),
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  
+  generateRandomQuote = () => {
+  this.setState({index: random()})
+  }
+
+  handleChange(e) {
+    e.preventDefault();
+    this.generateRandomQuote();
+  }
+  
+  render() {
+    {console.log(this.state.index)}
+    return (
+      <div id="quote-box" className="box-wrapper col">
+        <div className="quote-author-wrapper col">
+          <div id="text" className="quote">
+          {quotes[this.state.index]['quote']}
+          </div>
+          <div id="author" className="author">
+            -{quotes[this.state.index]['author']}
+          </div>
         </div>
-        <div id="author" className="author">
-          -{quotes[0]['author']}
+        <div className="btn-tweet-wrapper row">
+          <a 
+            href="https://www.twitter.com/intent/tweet" 
+            target="_blank"
+            id="tweet-quote" 
+            className="btn tweet-quote"
+          >Tweet</a>
+          <input 
+            id="new-quote" 
+            className="new-quote btn"
+            type='button'
+            value='New Quote'
+            onClick={this.handleChange}  
+          />
         </div>
       </div>
-      <div className="btn-tweet-wrapper row">
-        <a href="#" id="tweet-quote" className="btn tweet-quote">Tweet</a>
-        <button id="new-quote" className="btn new-quote">New Quote</button>
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;

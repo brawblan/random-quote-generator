@@ -7,12 +7,34 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .col {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.btn {
+  color: #fff;
+  background-color: rgb(37, 127, 254);
+  border-radius: 5px;
+  border: transparent;
+  width: fit-content;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  outline: none;
+}
+.btn:hover {
+  background-color: rgb(148, 193, 255);
+  text-shadow: 0 0 2px black;
+}
+.btn:active {
+  background-color: rgb(37, 127, 254);
+  position: relative;
+  top: 1px;
+}
+a {
+  text-decoration: none;
 }
 
 .box-wrapper {
@@ -20,12 +42,11 @@ body {
   height: 300px;
   width: 600px;
   margin: 100px auto;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 20px;
 }
 
 .quote-author-wrapper {
-  border: 1px solid black;
   height: 50%;
   width: 100%;
   margin: auto;
@@ -41,6 +62,14 @@ body {
 }
 
 .btn-tweet-wrapper {
-  border: 1px solid black;
+  display: flex;
+  width: 100%;
   justify-content: space-around;
+  margin-bottom: 30px;
+}
+.tweet-quote {
+
+}
+.new-quote {
+
 }
